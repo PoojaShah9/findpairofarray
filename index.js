@@ -1,13 +1,15 @@
-const getpairofSum = function (arr, sum) {
-  for (i = 0; i < arr.length; i++) {
-    for (j = i + 1; j < arr.length; j++) {
-      if (arr[i] + arr[j] == sum) {
-         console.log("(" + arr[i] + "," + arr[j] + ")");
-      }
+const myFUn = function(arr, S){
+    const sums = [];
+  const hashMap = new Map();
+  for (let i = 0; i < arr.length; i++) {
+    let sumMinusElement = S - arr[i];
+    if (hashMap.has(sumMinusElement.toString())) {
+      sums.push([arr[i], sumMinusElement]);
     }
+    hashMap.set(arr[i].toString(), arr[i])
   }
-};
+  console.log(sums);
+}
 
-const arr = [10, 20, 40, 50, 60, 70, -10];
-const sum = 50;
-getpairofSum(arr, sum);
+const a1 = [10, 20, 10, 40, 50, 60, 70, -10];
+myFUn(a1, 50)
